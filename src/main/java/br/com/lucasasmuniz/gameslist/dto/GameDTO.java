@@ -3,25 +3,21 @@ package br.com.lucasasmuniz.gameslist.dto;
 import org.springframework.beans.BeanUtils;
 
 import br.com.lucasasmuniz.gameslist.model.Game;
-import br.com.lucasasmuniz.gameslist.projection.GameMinProjection;
 import lombok.Data;
 
 @Data
-public class GameMinDTO {
-
+public class GameDTO {
     private Long id;
     private String title;
     private Integer year;
+    private String genre;
+    private String platforms;
+    private Double score;
     private String imgUrl;
     private String shortDescription;
+    private String longDescription;
 
-    public GameMinDTO(){}
-
-    public GameMinDTO(Game game){
+    public GameDTO(Game game){
         BeanUtils.copyProperties(game, this);
-    }
-
-    public GameMinDTO(GameMinProjection gameMinProjection){
-        BeanUtils.copyProperties(gameMinProjection, this);
     }
 }

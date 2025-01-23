@@ -4,10 +4,12 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import br.com.lucasasmuniz.gameslist.service.GameService;
+import br.com.lucasasmuniz.gameslist.dto.GameDTO;
 import br.com.lucasasmuniz.gameslist.dto.GameMinDTO;
 
 @RestController
@@ -21,4 +23,10 @@ public class gameController {
     public List<GameMinDTO> findAllGames(){
         return gameService.findAll();
     } 
+
+    @GetMapping("/{id}")
+    public GameDTO findGameById(@PathVariable Long id){
+        return gameService.findGameById(id);
+    }
+    
 }
